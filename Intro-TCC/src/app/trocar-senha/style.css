@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: white;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    height: 150px;
+}
+
+.icone {
+    width: 100px;
+    height: 100px;
+    background-color: #FFD288;
+    border-radius: 15%;
+    margin-left: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone img {
+    width: 80%;
+    height: auto;
+}
+
+.barra {
+    width: 80%;
+    height: 75px;
+    background-color: #FFBD57;
+    border-radius: 20px;
+    margin-left: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #355C7D;
+    font-size: 1.8rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
+
+.formulario-recuperacao {
+    width: 25%;
+    height: 370px;
+    background: linear-gradient(to bottom, #f9f9f9, #f8d6a2dc);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formulario-recuperacao:focus-within {
+    transform: scale(1.1); /* Faz o contêiner crescer */
+}
+
+
+.formulario-recuperacao h2 {
+    text-align: center;
+    color: #355C7D;
+}
+
+.formulario-recuperacao input {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border 0.3s ease;
+}
+
+.formulario-recuperacao input:focus {
+    border-color: #316796;
+}
+
+.formulario-recuperacao button {
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #316796;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.formulario-recuperacao button:hover {
+    background-color: #264c6d;
+}
+
+.erro {
+    color: #d32f2f;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.mensagem {
+    color: #388e3c;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.botoes-linha {
+    align-items: flex-end;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.botao-cancelar {
+    background-color: #d32f2f !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-cancelar:hover {
+    background-color: #FFBD57 !important;
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.botao-enviar {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.botao-enviar:hover {
+    background-color: #FFBD57 !important;
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}

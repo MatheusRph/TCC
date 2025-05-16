@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    position: relative;
+    background: linear-gradient(to bottom, #FFA411 51%, #DDD4CE 100%);
+    overflow-y: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+.icone {
+    width: 6.5vw;        
+    background-color: #FFD288;
+    border-radius: 15%;
+    margin-left: 2vw;      
+}
+
+.barra {
+    width: 70%;
+    height: 7vh;            
+    background-color: #FFD288;
+    border-radius: 2vh;
+    margin-left: 6vw;       
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Força a cor do texto dentro da barra */
+.barra h1 {
+    color: #355C7D !important;
+    margin: 0; /* remove margens que possam atrapalhar */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 5vh;           
+}
+
+img {
+    width: 6.5vw;
+    height: 6.5vw;
+}
+
+.camera {
+    width: 60vw;            
+    height: 70vh;          
+    background-color: black;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Media Queries (idem, mas com .barra h1 color ajustado) */
+@media (max-width: 940px) {
+    img {
+        width: 8.5vw;
+        height: 8.5vw;
+    }
+    .icone {
+        width: 8.5vw;        
+        background-color: #FFD288;
+        border-radius: 15%;
+        margin-left: 2vw;      
+    }
+    .barra h1 {
+        font-size: 28px;
+        color: #355C7D !important;
+    }
+    .camera {
+        width: 70vw;            
+        height: 60vh;          
+        background-color: black;
+    }
+    main {
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* Repete para outras media queries, só mantendo o color no h1 dentro da barra */
+
+@media (max-width: 630px) {
+    img {
+        width: 12vw;
+        height: 12vw;
+    }
+    .icone {
+        width: 12vw;        
+        background-color: #FFD288;
+        border-radius: 15%;
+        margin-left: 2vw;      
+    }
+    .barra {
+        color: #355C7D !important;
+        width: 70%;
+        height: 6vh;            
+        background-color: #FFD288;
+        border-radius: 2vh;  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .barra h1 {
+        font-size: 28px;
+        color: #355C7D !important;
+    }
+    .camera {
+        width: 70vw;            
+        height: 60vh;          
+        background-color: black;
+    }
+    main {
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 500px) {
+    img {
+        width: 16vw;
+        height: 16vw;
+    }
+    .icone {
+        width: 16vw;        
+        background-color: #FFD288;
+        border-radius: 15%;
+        margin-left: 2vw;      
+    }
+    .barra {
+        color: #355C7D !important;
+        width: 60%;
+        height: 5vh;   
+        margin-left: 100px;         
+        background-color: #FFD288;
+        border-radius: 2vh;  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .barra h1 {
+        font-size: 20px;
+        color: #355C7D !important;
+    }
+    .camera {
+        width: 70vw;            
+        height: 60vh;          
+        background-color: black;
+    }
+    main {
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 375px) {
+    img {
+        width: 16vw;
+        height: 16vw;
+    }
+    .icone {
+        width: 16vw;        
+        background-color: #FFD288;
+        border-radius: 15%;
+        margin-left: 2vw;      
+    }
+    h1{
+        font-size: 16px;
+        margin: auto;
+    }
+    .camera {
+        width: 70vw;            
+        height: 60vh;          
+        background-color: black;
+    }
+    main {
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .barra {
+        color: #355C7D !important;
+        width: 80%;
+        height: 5vh;           
+        background-color: #FFD288;
+        border-radius: 2vh;  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .barra h1 {
+        font-size: 16px;
+        color: #355C7D !important;
+    }
+}

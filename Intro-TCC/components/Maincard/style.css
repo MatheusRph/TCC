@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
+.bloco{
+    background: linear-gradient(to bottom, #ffffff, #ffb247ef); /* pêssego */
+    background: linear-gradient(to bottom, #ffffff, #fec99ab9); /* coral claro */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    height: 150px;
+}
+
+h2{
+    font-size: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.descript{
+    font-size: large;
+    color: #355C7D !important;
+}
+
+
+.button{
+    background-color: #355C7D !important;
+    border: transparent;
+}

@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+    position: relative;
+    background: linear-gradient(to bottom, #DDD4CE 0%, #DDD4CE 100%);
+}
+
+
+body {
+    overflow-y: hidden;
+    background-color: transparent
+}
+
+.navbar {
+    width: 100%;
+    height: 90px;
+    background-color: #FFBD57;
+    color: white;
+}
+h1{
+    color: #355C7D;
+}
+.header {
+    padding: 0%;
+}
+
+.corpo {
+    position: relative;
+    background-image: url(/fundoLogin.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 83%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+    gap: 50px;
+    margin: 0 auto;
+}
+img{
+ height: 90px;
+}
+
+.corpo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #DDD4CE 100%);
+    pointer-events: none;
+}
+
+.corpo2 {
+    position: relative;
+    background: url('/fundoCadastro.jpg') center center/cover no-repeat;
+    width: 100%;
+    height: 8vh;
+}
+
+.corpo2::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 60%, #DDD4CE 100%);
+    pointer-events: none;
+    
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    width: 100%;
+    height: 75%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(255, 210, 136, 0.75);
+    border-color: #FFD288;
+    border-radius: 25px;
+    width: 43vh;
+    height: 45vh;   
+    margin-top: 100px;
+    
+}
+
+form h1{
+    width: 80%;
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: xx-large;
+    color: #355C7D;
+}
+
+.form-container{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    height: 100%;
+    align-items: start;
+    justify-content: start;
+    gap: 5%;
+    
+}
+
+.boasVindas {
+    color: #805209;
+    font-family: "Roboto", serif;
+    margin-left: 50px;
+    margin-bottom: 60px;
+    font-size: 15px;
+}
+
+input{
+    background-color:#355C7D;
+    color: white;
+    border-radius: 20px;
+    height: 10%;
+    width: 90%;
+    outline: none;
+    border: transparent;
+    padding: 4%;
+    caret-color: white;
+}
+input::placeholder{
+    color: white;
+}
+
+.botoes-login {
+    display: flex;
+    justify-content: center;
+    gap: 30px; 
+}
+
+.buttons{
+    gap: 6%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    width: 50%; 
+    max-width: 60%; 
+    padding: 8px 12px; 
+    font-size: 14px; 
+    border-radius: 8px; 
+}
+.bnt {
+    background-color:#0f3c63ad ;
+    color: white;
+    border: 1px solid #0f3c63ad;
+    margin: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bnt:hover,
+.bnt:active {
+    background-color:#355C7D ;
+    color: white;
+    transform: scale(1.02);
+    /* Efeito de zoom suave ao passar o mouse */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+label{
+    color: #355C7D;
+    font-size: x-large;
+}
+
+.forget{
+    background-color: transparent;
+    color: #805209;
+    border: transparent;
+}
+
+.w-80 rounded-3{
+    width: 90%;
+   
+}
+
+h3{
+    color: #355C7D;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+
+@media (max-width: 900px) {
+    .container{
+        align-items: center;
+        width: 20vh;
+        height: 23vh;   
+       
+    }
+    h3{
+        font-size: medium;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .form{
+       margin-top: 300%;
+    }
+    
+    
+}
+@media (max-width: 321px) {
+    .container{
+        align-items: center;
+    }
+    h3{
+        font-size: small;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .form{
+        width: 200%;
+        height: 300%;
+    }
+    .form-container{
+        width: 90%;
+
+    }
+    h1{
+        font-size:x-large;
+    }
+    img{
+        height: 70px;
+    }
+    
+}

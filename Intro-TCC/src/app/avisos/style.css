@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    position: relative;
+    background: linear-gradient(to bottom, #FFA411 40%, #DDD4CE 100%);
+    overflow-y: hidden;
+}
+
+p {
+    margin: 0;
+}
+
+.navbar {
+    width: 100%;
+    background-color: #FFD288;
+    color: #805209;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.header {
+    margin: 0;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    width: 20vw;
+    position: absolute;
+    top: 3vh;
+    left: 2vw;
+}
+
+img {
+    width: 200px;
+    align-self: center;
+    margin-top: -3vh;
+}
+
+main {
+    margin-top: 8vh;
+}
+
+h4 {
+    color: #805209;
+    font-family: 'Roboto', sans-serif;
+}
+
+h5 {
+    color: #805209;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vh;
+}
+
+.barras {
+    width: 60vw;
+    height: 40vh;
+    background-color: #FFD288;
+    border-radius: 30px;
+    margin: 6vh;
+    padding: 2vh;
+    font-size: 2vh;
+    font-family: 'Roboto', sans-serif;
+    color: #805209;
+    border: 0.2vh solid #d89e5a;
+    display: flex;
+    align-items: center;
+    outline: none;
+    overflow: hidden;
+    direction: ltr;
+    resize: none;
+    text-align: left;
+    unicode-bidi: plaintext;
+}
+
+.botao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.quadrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enviar {
+    width: 20vw;
+    height: 6vh;
+    background-color: #FFD288;
+    border-radius: 15px;
+}
+
+p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5vh;
+}
+@media (max-width: 351px) {
+    .container{
+        align-items: center;
+    }
+   
+    .form{
+        width: 200%;
+        height: 300%;
+    }
+    .form-container{
+        width: 90%;
+
+    }
+    h1{
+        font-size:x-large;
+        margin-left: 200px;
+      
+    }
+    img{
+        height: 80px;
+    
+        
+    }
+    .navbar {
+        width: 100%;
+        background-color: #FFD288;
+        color: #805209;
+        height: 8vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .barras {
+        width: 150vw;
+        height: 40vh;
+        background-color: #FFD288;
+        border-radius: 30px;
+      
+        margin-top:80px;
+        font-size: 2vh;
+        font-family: 'Roboto', sans-serif;
+        color: #805209;
+        border: 0.2vh solid #d89e5a;
+        display: flex;
+        align-items: center;
+        outline: none;
+        overflow: hidden;
+        direction: ltr;
+        resize: none;
+        text-align: left;
+        unicode-bidi: plaintext;
+    }
+    .enviar {
+        width: 30vw;
+        height: 6vh;
+        background-color: #FFD288;
+        border-radius: 15px;
+    }
+    h5 {
+        color: #805209;
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1.5vh;
+    }
+  
+}
+@media (max-width: 421px) {
+    .container{
+        align-items: center;
+    }
+   
+    .form{
+        width: 200%;
+        height: 300%;
+    }
+    .form-container{
+        width: 90%;
+
+    }
+    h1{
+        font-size:x-large;
+        margin-left: 240px;
+      
+    }
+    img{
+        height: 90px;
+    
+        
+    }
+    .navbar {
+        width: 100%;
+        background-color: #FFD288;
+        color: #805209;
+        height: 8vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .barras {
+        width: 150vw;
+        height: 40vh;
+        background-color: #FFD288;
+        border-radius: 30px;
+      
+        margin-top:80px;
+        font-size: 2vh;
+        font-family: 'Roboto', sans-serif;
+        color: #805209;
+        border: 0.2vh solid #d89e5a;
+        display: flex;
+        align-items: center;
+        outline: none;
+        overflow: hidden;
+        direction: ltr;
+        resize: none;
+        text-align: left;
+        unicode-bidi: plaintext;
+    }
+    .enviar {
+        width: 30vw;
+        height: 6vh;
+        background-color: #FFD288;
+        border-radius: 15px;
+    }
+    h5 {
+        color: #805209;
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1.5vh;
+    }
+  
+}
+@media (max-width: 321px) {
+    .container{
+        align-items: center;
+    }
+   
+    .form{
+        width: 200%;
+        height: 300%;
+    }
+    .form-container{
+        width: 90%;
+
+    }
+    h1{
+        font-size:x-large;
+        margin-left: 200px;
+      
+    }
+    img{
+        height: 80px;
+    
+        
+    }
+    .navbar {
+        width: 100%;
+        background-color: #FFD288;
+        color: #805209;
+        height: 8vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .barras {
+        width: 150vw;
+        height: 40vh;
+        background-color: #FFD288;
+        border-radius: 30px;
+      
+        margin-top:80px;
+        font-size: 2vh;
+        font-family: 'Roboto', sans-serif;
+        color: #805209;
+        border: 0.2vh solid #d89e5a;
+        display: flex;
+        align-items: center;
+        outline: none;
+        overflow: hidden;
+        direction: ltr;
+        resize: none;
+        text-align: left;
+        unicode-bidi: plaintext;
+    }
+    .enviar {
+        width: 30vw;
+        height: 6vh;
+        background-color: #FFD288;
+        border-radius: 15px;
+    }
+    h5 {
+        color: #805209;
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1.5vh;
+    }
+  
+}

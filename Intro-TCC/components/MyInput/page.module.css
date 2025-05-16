@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.form {
+    font-family: "Roboto", serif;
+    font-size: x-large;
+    font-weight: bold;
+    color: #805209;
+    margin: 35px;
+    height: 80%;
+    background-color: transparent;
+}
+
+.form input:focus,
+.form textarea:focus {
+    font-family: "Roboto", serif;
+    background-color: #805209;
+}
+
+.form input {
+    font-family: "Roboto", serif;
+    background-color: #805209;
+}
