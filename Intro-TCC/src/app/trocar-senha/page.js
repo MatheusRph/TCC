@@ -16,7 +16,7 @@ function Codigo() {
         setErro('');
         setMensagem('');
         try {
-            const resposta = await fetch('http://localhost:3001/forgot_password', {
+            const resposta = await fetch('api/forgot_password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email })
@@ -40,7 +40,7 @@ function Codigo() {
         setErro('');
         setMensagem('');
         try {
-            const resposta = await fetch('http://localhost:3001/reset_password', {
+            const resposta = await fetch('api/reset_password', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ token, password, email })

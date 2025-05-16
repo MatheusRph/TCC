@@ -26,7 +26,7 @@ export default function Sugestao() {
 
   const buscarSugestoes = async () => {
     try {
-      const response = await fetch('http://localhost:3001/sugestao/ver', {
+      const response = await fetch('api/sugestao/ver', {
         method: 'GET',
         credentials: 'include',
       });
@@ -57,7 +57,7 @@ export default function Sugestao() {
     if (!novaSugestao.trim()) return;
 
     try {
-      const response = await fetch('http://localhost:3001/sugestao/criar', {
+      const response = await fetch('api/sugestao/criar', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

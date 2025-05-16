@@ -17,7 +17,7 @@ function AdicionarEntregas() {
     useEffect(() => {
         const fetchEntregas = async () => {
             try {
-                const response = await fetch('http://localhost:3001/entregas/ver', {
+                const response = await fetch('api/entregas/ver', {
                     method: 'GET',
                     credentials: 'include',
                 });
@@ -36,7 +36,7 @@ function AdicionarEntregas() {
 
     const criarEntrega = async () => {
         try {
-            const response = await fetch('http://localhost:3001/entregas/criar', {
+            const response = await fetch('api/entregas/criar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

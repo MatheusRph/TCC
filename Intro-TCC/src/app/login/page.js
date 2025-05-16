@@ -32,7 +32,7 @@ function Login() {
     setErrorMessage(""); // Limpa mensagens anteriores
 
     try {
-      const response = await fetch("http://localhost:3001/login", {
+      const response = await fetch("api/login", {
         method: "POST",
         headers: {
           Accept: "application/json",

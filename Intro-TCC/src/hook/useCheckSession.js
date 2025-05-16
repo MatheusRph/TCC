@@ -9,7 +9,7 @@ export default function useCheckSession() {
   useEffect(() => {
     const checkSession = async () => {
       try {
-        const response = await fetch("http://localhost:3001/user", {
+        const response = await fetch("api/user", {
           method: "GET",
           credentials: "include",
         });

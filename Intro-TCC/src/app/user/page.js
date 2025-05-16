@@ -13,7 +13,7 @@ function Adm() {
     useEffect(() => {
         const fetchAvisos = async () => {
             try {
-                const response = await fetch('http://localhost:3001/avisos/ver', {
+                const response = await fetch('api/avisos/ver', {
                     method: 'GET',
                     credentials: 'include',
                 });
