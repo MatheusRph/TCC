@@ -1,7 +1,4 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-name: Build and deploy Node.js app to Azure Web App - condtrack928-02
+name: Build and deploy Node.js app to Azure Web App - condtrack928
 
 on:
   push:
@@ -13,7 +10,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: read #This is required for actions/checkout
+      contents: read
 
     steps:
       - uses: actions/checkout@v4
@@ -23,14 +20,42 @@ jobs:
         with:
           node-version: '22.x'
 
-      - name: npm install, build, and test
+      - name: Install backend dependencies
         run: |
+          cd back-end
           npm install
-          npm run build --if-present
-          npm run test --if-present
 
-      - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
+      - name: Install frontend dependencies
+        run: |
+          cd Intro-TCC
+          npm install
+
+      - name: Build frontend project
+        run: |
+          cd Intro-TCC
+          npm run build
+
+      - name: Criar .env no back-end com secrets
+        run: |
+          cat <<EOF > back-end/.env
+          DB_PASSWORD=${{ secrets.DB_PASSWORD }}
+          DB_NAME=${{ secrets.DB_NAME }}
+          DB_USER=${{ secrets.DB_USER }}
+          DB_HOST=${{ secrets.DB_HOST }}
+          DB_PORT=${{ secrets.DB_PORT }}
+          DB_DIALECT=${{ secrets.DB_DIALECT }}
+          DB_LOGGING=${{ secrets.DB_LOGGING }}
+          SESSION_TOKEN=${{ secrets.SESSION_TOKEN }}
+          SENDINBLUE_API_TOKEN=${{ secrets.SENDINBLUE_API_TOKEN }}
+          SENDER_EMAIL=${{ secrets.SENDER_EMAIL }}
+          SENDER_NAME=${{ secrets.SENDER_NAME }}
+          SECRET_KEY_JWT=${{ secrets.SECRET_KEY_JWT }}
+          NODE_ENV=production
+          EOF
+
+      - name: Zip backend + frontend para deployment
+        run: |
+          zip -r release.zip back-end Intro-TCC -x "**/node_modules/**" "**/.git/**" "*.zip"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -45,8 +70,8 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write #This is required for requesting the JWT
-      contents: read #This is required for actions/checkout
+      id-token: write
+      contents: read
 
     steps:
       - name: Download artifact from build job
@@ -56,7 +81,7 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-      
+
       - name: Login to Azure
         uses: azure/login@v2
         with:
@@ -64,11 +89,10 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B2891EDD1F174E97A2745B558988A98E }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DD5F1FD5FF42409FBD8B3ED2072C18ED }}
 
-      - name: 'Deploy to Azure Web App'
+      - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'condtrack928-02'
+          app-name: 'condtrack928'
           slot-name: 'Production'
           package: .
-          
