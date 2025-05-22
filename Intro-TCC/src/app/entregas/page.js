@@ -10,10 +10,14 @@ function Entregas() {
     useEffect(() => {
         const fetchEntregas = async () => {
             try {
-                const response = await fetch('http://localhost:3001/entregas/ver', {
+                const response = await fetch('api/entregas/ver', {
                     method: 'GET',
-                    credentials: 'include', // Isso aqui envia o cookie da sessão!
+                    credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                 });
+
 
                 if (!response.ok) throw new Error('Erro ao buscar entregas');
 
@@ -31,13 +35,13 @@ function Entregas() {
     return (
         <>
             <header>
-            <div className="navbar">
-        <div className='logo'>
+                <div className="navbar">
+                    <div className='logo'>
                         <img src="/icone.png" alt="" />
                         <h1>COND TRACK</h1>
                         <h2>Entregas</h2>
                     </div>
-        </div>
+                </div>
                 <div className="barra"></div>
             </header>
 
@@ -45,7 +49,9 @@ function Entregas() {
                 <div className='barras'>
                     {listaEntregas.map((entrega) => (
                         <div className='pendentes' key={entrega.id}>
-                            <p>{entrega.responsavel} – Item: {entrega.item} – Ramal: {entrega.ramal_id}</p>
+                            <p>
+                                <strong>Item:</strong> {entrega.item} <br></br> <strong>Ramal:</strong> {entrega.ramal_id}
+                            </p>
                             <div className='botao'></div>
                         </div>
                     ))}

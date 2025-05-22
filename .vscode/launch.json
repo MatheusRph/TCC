@@ -1,0 +1,15 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      
+      {
+        "type": "pwa-node",
+        "request": "launch",
+        "name": "Debug server.js",
+        "skipFiles": ["<node_internals>/**"],
+        "program": "${workspaceFolder}/back-end/server.js",
+        "cwd": "${workspaceFolder}/back-end"
+      }
+    ]
+  }
+  

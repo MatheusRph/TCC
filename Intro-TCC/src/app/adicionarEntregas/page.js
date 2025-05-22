@@ -7,11 +7,15 @@ function AdicionarEntregas() {
     const [listaEntregas, setListaEntregas] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [entrega, setEntrega] = useState('');
+    const [ramal, setRamal] = useState('');
+    const [erroEntrega, setErroEntrega] = useState('');
+
 
     const abrirModal = () => setShowModal(true);
     const fecharModal = () => {
         setShowModal(false);
         setEntrega('');
+        setRamal('');
     };
 
     useEffect(() => {
@@ -20,9 +24,15 @@ function AdicionarEntregas() {
                 const response = await fetch('api/entregas/ver', {
                     method: 'GET',
                     credentials: 'include',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
                 });
 
-                if (!response.ok) throw new Error('Erro ao buscar entregas');
+                if (!response.ok) {
+                    const errorText = await response.text(); // ou .json() se o back-end retornar JSON
+                    throw new Error(`Erro ao criar sugestão: ${response.status} - ${errorText}`);
+                }
 
                 const data = await response.json();
                 setListaEntregas(data.response);
@@ -36,25 +46,31 @@ function AdicionarEntregas() {
 
     const criarEntrega = async () => {
         try {
-            const response = await fetch('api/entregas/criar', {
+            const response = await fetch('/api/entregas/criar', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 credentials: 'include',
-                body: JSON.stringify({ sugestao: entrega })
+                body: JSON.stringify({
+                    item: entrega,
+                    responsavel: ramal
+                })
             });
 
-            if (!response.ok) throw new Error('Erro ao criar sugestão');
+            if (!response.ok) {
+                const errorText = await response.text();
+                setErroEntrega(`${errorText}`);
+                return; // Não fecha o modal se houver erro
+            }
 
-            alert('Sugestão enviada com sucesso!');
+            alert('Entrega criada com sucesso!');
             fecharModal();
         } catch (err) {
             console.error('Erro ao criar sugestão:', err);
-            alert('Erro ao criar sugestão.');
+            setErroEntrega('Erro inesperado ao criar entrega.');
         }
     };
-
     return (
         <>
             <header>
@@ -75,7 +91,9 @@ function AdicionarEntregas() {
                     ) : (
                         listaEntregas.map((entrega) => (
                             <div className='pendentes' key={entrega.id}>
-                                <p>{entrega.responsavel} – Item: {entrega.item} – Ramal: {entrega.ramal_id}</p>
+                                <p>
+                                    <strong>Item:</strong> {entrega.item} <br></br> <strong>Ramal:</strong> {entrega.ramal_id}
+                                </p>
                                 <div className='botao'></div>
                             </div>
                         ))
@@ -87,18 +105,32 @@ function AdicionarEntregas() {
                 <div className="custom-backdrop">
                     <div className="custom-popup">
                         <h2>Criar Entrega</h2>
+
+                        {erroEntrega && (
+                            <p className="erro-entrega">{erroEntrega}</p>
+                        )}
+
+                        <input
+                            type="text"
+                            className="modal-input-ramal"
+                            placeholder="Ramal do destinatário..."
+                            value={ramal}
+                            onChange={(e) => setRamal(e.target.value)}
+                        />
+
                         <textarea
                             className="modal-input"
-                            placeholder="Digite sua sugestão aqui…"
+                            placeholder="Digite a entrega aqui…"
                             value={entrega}
                             onChange={(e) => setEntrega(e.target.value)}
                         />
+
                         <div className="modal-footer">
                             <button className="btn cancel" onClick={fecharModal}>
                                 Cancelar
                             </button>
                             <button className="btn primary" onClick={criarEntrega}>
-                                Criar
+                                Criar Entrega
                             </button>
                         </div>
                     </div>

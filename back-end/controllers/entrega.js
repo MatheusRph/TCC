@@ -7,8 +7,23 @@ const { Entrega, User } = require('../models/index.js');
 // Exporta a função getEntregas
 exports.getEntregas = async (req, res) => {
     try {
+
+        let user = req.session.user.id
+
+        user = await User.findOne({ where: { id: user } });
+
+        if (!user) {
+            return res.status(401).json({
+                response: "Não identificado para a execução desta operação"
+            })
+        }
+
         // Busca todas as entregas
-        const entregas = await Entrega.findAll();
+        const entregas = await Entrega.findAll({
+            where: {
+              responsavel: user.ramal
+            }
+          });
 
         // Tratamento de erro caso não houver entregas
         // Verifica se não há entregas encontradas
@@ -44,36 +59,45 @@ exports.registerEntrega = async (req, res) => {
     try {
 
         // Obtém os dados do corpo da requisição
-        const { ramal, responsavel, item } = req.body;
+        const { responsavel, item } = req.body;
+
+        let ramal = req.session.user.id
 
         // Verifica se o ramal e o responsável foram informados
-        if (!ramal || !responsavel) {
+        if (!responsavel) {
             return res.status(400).json({
                 success: false,
-                response: 'Informe o ramal e o responsável à receber'
+                response: 'Informe o responsável à receber'
             });
         }
 
-        if(!item){
+        if (!item) {
             return res.status(400).json({
                 success: false,
                 response: 'Informe o item a ser entregue'
-                });
+            });
         }
 
         // Busca o usuário pelo ramal
-        const user = await User.findOne({ where: { ramal: ramal } });
+        let user = await User.findOne({ where: { id: req.session.user.id } });
 
         // Verifica se o usuário foi encontrado
         if (!user) {
             return res.status(400).json({
                 success: false,
-                response: 'Ramal inválido'
+                response: 'Não identificado para a execução desta operação'
+            });
+        }
+
+        if (! await User.findOne({ where: { ramal: responsavel } })) {
+            return res.status(400).json({
+                success: false,
+                response: 'Destinatário inválido'
             });
         }
 
         // Cria uma nova entrega
-        const entrega = await Entrega.create({ ramal_id: user.id, responsavel: responsavel, item: item })
+        const entrega = await Entrega.create({ ramal_id: user.ramal, responsavel: responsavel, item: item })
 
         // Verifica se a entrega foi criada com sucesso
         if (!entrega) {

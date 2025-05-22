@@ -59,11 +59,15 @@ router.post('/reset_password', recoveryController.resetPassword);
 
 router.get('/user', isAuthenticated, (req, res) => {
     res.status(200).json({
-      success: true,
-      user: req.session.user
+        success: true,
+        user: req.session.user
     });
-  });
-  
+});
+
+
+router.delete('/avisos/:id', isAuthenticated, checkPermissions('admin'), (req, res) => {
+    warnsController.deleteWarn(req, res);
+});
 
 router.route('/avisos/modificar')
     .get(isAuthenticated, (req, res) => {
